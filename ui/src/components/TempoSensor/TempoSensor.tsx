@@ -185,7 +185,6 @@ export const TempoSensor: React.FC = () => {
 						<CardDescription className="text-xs sm:text-sm">Temperature and humidity throughout the day</CardDescription>
 					</CardHeader>
 					<CardContent className="space-y-3 sm:space-y-4">
-						{/* Date Controls */}
 						<div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-2 sm:gap-3">
 							<Button
 								onClick={handlePreviousDay}
@@ -301,7 +300,6 @@ export const TempoSensor: React.FC = () => {
 									</p>
 								</div>
 
-								{/* Humidity Stats */}
 								<div className="rounded bg-blue-50 p-2 sm:p-3">
 									<p className="text-xs text-gray-600">Max Humidity</p>
 									<p className="text-base sm:text-xl font-semibold text-blue-600">
