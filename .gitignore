@@ -31,6 +31,7 @@ pnpm-debug.log*
 *.swo
 *.iml
 
+firmware/src/env.h
 firmware/.pio
 firmware/.vscode
 firmware/.vscode/.browse.c_cpp.db*
