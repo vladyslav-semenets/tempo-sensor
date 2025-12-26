@@ -1,0 +1,55 @@
+# Dependencies
+ui/node_modules/
+ui/.pnp
+ui/.pnp.js
+
+# Testing
+ui/coverage/
+
+# Production / Build
+ui/dist/
+ui/build/
+ui/.cache/
+
+# Misc
+.DS_Store
+ui/.env
+ui/.env.local
+ui/.env.development.local
+ui/.env.test.local
+ui/.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# IDEs and Editors
+.idea/
+.vscode/
+*.swp
+*.swo
+*.iml
+
+firmware/.pio
+firmware/.vscode
+firmware/.vscode/.browse.c_cpp.db*
+firmware/.vscode/c_cpp_properties.json
+firmware/.vscode/launch.json
+firmware/.vscode/ipch
+
+firmware/.idea
+
+ui/.idea
+
+# Capacitor
+# Web assets copied to platforms are ignored in the platform-specific .gitignore files
+# but it's good practice to ensure they don't leak from the root if not using sub-gitignores
+# android/app/src/main/assets/public
+# ios/App/App/public
+
+# Android specific
+ ui/android/.gradle
+ ui/android/local.properties
+ ui/android/app/build
+ ui/android/capacitor-cordova-android-plugins

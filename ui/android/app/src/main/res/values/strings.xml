@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Tempo Sensor</string>
+    <string name="title_activity_main">Tempo Sensor</string>
+    <string name="package_name">com.home.tempsensor</string>
+    <string name="custom_url_scheme">com.home.tempsensor</string>
+    <string name="default_web_client_id">377441967702-maal76496mlcijqnr3vo1b5rmrhepj62.apps.googleusercontent.com</string>
+</resources>

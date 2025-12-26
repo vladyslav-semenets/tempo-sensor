@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "377441967702",
+    "firebase_url": "https://esp32-943ad-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "esp32-943ad",
+    "storage_bucket": "esp32-943ad.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:377441967702:android:cd6b5e632940571a0865f7",
+        "android_client_info": {
+          "package_name": "com.home.tempsensor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "377441967702-scq7lq57in6hvvlsq9mt8p0lrbo9i8k0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.home.tempsensor",
+            "certificate_hash": "3798b85b9e23ad74620587530e718c3825917da9"
+          }
+        },
+        {
+          "client_id": "377441967702-maal76496mlcijqnr3vo1b5rmrhepj62.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCcNO9eHxQCQ8HksIBoalEY5joli9EJlc0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "377441967702-maal76496mlcijqnr3vo1b5rmrhepj62.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
