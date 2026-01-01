@@ -1,5 +1,6 @@
 #include <Arduino.h>
 #include "esp_bt.h"
+#include <Preferences.h>
 #include <Wire.h>
 #include <Adafruit_BME280.h>
 #include <HardwareSerial.h>
@@ -20,10 +21,11 @@
 #define STANDING_DISTANCE 90
 #define RXp2 17
 #define BME280_ADDRESS 0x76
-#define DEEP_SLEEP_DURATION 30
+#define DEEP_SLEEP_DURATION 60
 #define SDA_PIN 6
 #define SCL_PIN 7
 
+Preferences preferences;
 Adafruit_BME280 bme;
 RealtimeDatabase realtimeDBInstance;
 const char * ntpServer = "pool.ntp.org";
@@ -41,6 +43,12 @@ int getTimestamp() {
   time_t timestamp = mktime(&timeInfo);
 
   return static_cast<int> (timestamp);
+}
+
+int getTimeDifferenceInHours(int timestamp1, int timestamp2) {
+  int differenceInSeconds = abs(timestamp1 - timestamp2);
+  int differenceInHours = differenceInSeconds / 3600;
+  return differenceInHours;
 }
 
 bool initializingTempSensor() {
@@ -63,6 +71,12 @@ bool initializingTempSensor() {
 }
 
 float getCurrentSeaLevelPressure() {
+  int lastFetchAt = preferences.getInt("slplf", 0);
+
+  if (getTimeDifferenceInHours(getTimestamp(), lastFetchAt) <= 24) {
+    return preferences.getInt("slp");
+  }
+
   HTTPClient http;
 
   http.begin("https://api.open-meteo.com/v1/forecast?latitude=54.0359&longitude=19.0266&current=surface_pressure");
@@ -77,7 +91,11 @@ float getCurrentSeaLevelPressure() {
     DeserializationError error = deserializeJson(doc, payload);
 
      if (!error) {
-      return doc["current"]["surface_pressure"].as<float>();
+      float seaLevelPressure = doc["current"]["surface_pressure"].as<float>();
+      preferences.putInt("slp", seaLevelPressure);
+      preferences.putInt("slplf", getTimestamp());
+      
+      return seaLevelPressure;
     } else {
       return 0;
     }
@@ -142,6 +160,8 @@ void setup() {
   Wire.begin(SDA_PIN, SCL_PIN);
   Wire.setClock(100000);
   Wire.begin(SDA_PIN, SCL_PIN);
+
+  preferences.begin("tempo-sensor");
 
   initializingTempSensor();
   connectToWifi();
